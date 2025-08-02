@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dsxcakbhgl44w"
+path="res://.godot/imported/You Are An Ecophage.ogg-50c3ed29bb299c2b2cea39af08485312.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/You Are An Ecophage.ogg"
+dest_files=["res://.godot/imported/You Are An Ecophage.ogg-50c3ed29bb299c2b2cea39af08485312.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
