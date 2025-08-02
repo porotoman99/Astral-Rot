@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1vbp8yrixac3"]
+
+[ext_resource type="Script" uid="uid://bf6bqxyjt6soo" path="res://planet_5.gd" id="1_qcpq0"]
+[ext_resource type="Texture2D" uid="uid://c4iswu6jhrixr" path="res://assets/planet_5.png" id="2_qcpq0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cyntg"]
+radius = 203.022
+
+[node name="Planet5" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_qcpq0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -3)
+shape = SubResource("CircleShape2D_cyntg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_qcpq0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

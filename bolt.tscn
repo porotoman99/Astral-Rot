@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyo7bksn3anv"]
+
+[ext_resource type="Texture2D" uid="uid://d0rpqydcx1pm6" path="res://assets/bolt.png" id="1_bewd0"]
+[ext_resource type="Script" uid="uid://euqio417603m" path="res://bolt.gd" id="1_v78vr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v78vr"]
+radius = 36.0
+
+[node name="Bolt" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_v78vr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_v78vr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bewd0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

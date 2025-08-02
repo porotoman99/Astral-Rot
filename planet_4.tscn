@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://byi5bofyuoy63"]
+
+[ext_resource type="Script" uid="uid://bv3k6gg8iojjo" path="res://planet_4.gd" id="1_a045c"]
+[ext_resource type="Texture2D" uid="uid://bjqjytof05pkh" path="res://assets/planet_4.png" id="2_a045c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q7y1d"]
+radius = 90.0056
+
+[node name="Planet4" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_a045c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -3)
+shape = SubResource("CircleShape2D_q7y1d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_a045c")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

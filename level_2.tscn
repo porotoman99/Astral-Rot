@@ -1,0 +1,404 @@
+[gd_scene load_steps=17 format=3 uid="uid://bf08amj5jwvc2"]
+
+[ext_resource type="PackedScene" uid="uid://bdj68j7nw00xj" path="res://player.tscn" id="1_1y8me"]
+[ext_resource type="Script" uid="uid://fewy1o3me5tw" path="res://level_2.gd" id="1_7j8ne"]
+[ext_resource type="Texture2D" uid="uid://qpikgvb6orub" path="res://assets/ship.png" id="2_n7ypv"]
+[ext_resource type="Shader" uid="uid://c2h1wuhf8uq7a" path="res://scroll.gdshader" id="3_0s5r2"]
+[ext_resource type="Texture2D" uid="uid://df2bp2lvfh7p3" path="res://assets/room.png" id="3_n7ypv"]
+[ext_resource type="Texture2D" uid="uid://c7p43rnnwingi" path="res://assets/space.png" id="4_7j8ne"]
+[ext_resource type="PackedScene" uid="uid://cpgr434gjp1km" path="res://wall.tscn" id="6_0s5r2"]
+[ext_resource type="Texture2D" uid="uid://dnqlta6g2sxbq" path="res://assets/door.png" id="8_5hnhx"]
+[ext_resource type="PackedScene" uid="uid://cjrpwekorrpea" path="res://bacteria.tscn" id="8_7dov7"]
+[ext_resource type="PackedScene" uid="uid://cyo7bksn3anv" path="res://bolt.tscn" id="9_ehv2h"]
+[ext_resource type="PackedScene" uid="uid://ctct24rth8tnp" path="res://rodent.tscn" id="10_15wb7"]
+[ext_resource type="PackedScene" uid="uid://ba6ofhx47bg6h" path="res://gun.tscn" id="11_eoq84"]
+[ext_resource type="PackedScene" uid="uid://dwwe7warghel4" path="res://pda.tscn" id="12_yl73a"]
+[ext_resource type="PackedScene" uid="uid://cfisqgu4x8ndv" path="res://screw.tscn" id="13_s77qv"]
+[ext_resource type="PackedScene" uid="uid://n6sf0xoe7gml" path="res://fur.tscn" id="14_5hnhx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7dov7"]
+shader = ExtResource("3_0s5r2")
+
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_7j8ne")
+
+[node name="Player" parent="." instance=ExtResource("1_1y8me")]
+position = Vector2(5894, 596)
+
+[node name="Ship" type="Sprite2D" parent="."]
+z_index = -1
+scale = Vector2(4, 4)
+texture = ExtResource("2_n7ypv")
+
+[node name="Room" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4899, -104)
+texture = ExtResource("3_n7ypv")
+
+[node name="Space" type="TextureRect" parent="."]
+z_index = -2
+material = SubResource("ShaderMaterial_7dov7")
+offset_left = -30626.0
+offset_top = -21159.0
+offset_right = -15056.0
+offset_bottom = -10487.0
+scale = Vector2(4, 4)
+texture = ExtResource("4_7j8ne")
+stretch_mode = 1
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("6_0s5r2")]
+position = Vector2(4874, -2322)
+scale = Vector2(120.92, 1)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("6_0s5r2")]
+position = Vector2(4864, 2126)
+scale = Vector2(120.92, 1)
+
+[node name="Wall7" parent="Walls" instance=ExtResource("6_0s5r2")]
+position = Vector2(6306, -84)
+rotation = 1.5708
+scale = Vector2(205.2, 1)
+
+[node name="Wall8" parent="Walls" instance=ExtResource("6_0s5r2")]
+position = Vector2(3426, -138)
+rotation = 1.5708
+scale = Vector2(205.2, 1)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("6_0s5r2")]
+position = Vector2(3571, 2023)
+rotation = 0.785398
+scale = Vector2(26.2242, 1)
+
+[node name="Wall9" parent="Walls" instance=ExtResource("6_0s5r2")]
+position = Vector2(5297, 261)
+rotation = 0.677949
+scale = Vector2(23.1706, 1)
+
+[node name="Wall14" parent="Walls" instance=ExtResource("6_0s5r2")]
+position = Vector2(5973, -207)
+rotation = -0.260442
+scale = Vector2(23.1706, 1)
+
+[node name="Wall15" parent="Walls" instance=ExtResource("6_0s5r2")]
+position = Vector2(6190, -472)
+rotation = 1.5708
+scale = Vector2(20.8506, 1)
+
+[node name="Wall18" parent="Walls" instance=ExtResource("6_0s5r2")]
+position = Vector2(6179, -865)
+rotation = 1.66056
+scale = Vector2(20.8506, 1)
+
+[node name="Wall22" parent="Walls" instance=ExtResource("6_0s5r2")]
+position = Vector2(5466, -1195)
+rotation = 1.66056
+scale = Vector2(21.6581, 1)
+
+[node name="Wall23" parent="Walls" instance=ExtResource("6_0s5r2")]
+position = Vector2(5744, -1450)
+rotation = 2.9718
+scale = Vector2(27.1179, 1)
+
+[node name="Wall19" parent="Walls" instance=ExtResource("6_0s5r2")]
+position = Vector2(6083, -854)
+rotation = 1.0261
+scale = Vector2(20.8506, 1)
+
+[node name="Wall20" parent="Walls" instance=ExtResource("6_0s5r2")]
+position = Vector2(5545, -802)
+rotation = 1.07083
+scale = Vector2(20.8506, 1)
+
+[node name="Wall21" parent="Walls" instance=ExtResource("6_0s5r2")]
+position = Vector2(6098, -1285)
+rotation = 1.14087
+scale = Vector2(23.8535, 1)
+
+[node name="Wall16" parent="Walls" instance=ExtResource("6_0s5r2")]
+position = Vector2(5449, -722)
+rotation = 1.5708
+scale = Vector2(23.1706, 1)
+
+[node name="Wall17" parent="Walls" instance=ExtResource("6_0s5r2")]
+position = Vector2(5564, -448)
+rotation = 0.674389
+scale = Vector2(23.1706, 1)
+
+[node name="Wall11" parent="Walls" instance=ExtResource("6_0s5r2")]
+position = Vector2(5687, 246)
+rotation = -0.629577
+scale = Vector2(27.3285, 1)
+
+[node name="Wall13" parent="Walls" instance=ExtResource("6_0s5r2")]
+position = Vector2(5179, -434)
+rotation = -0.629577
+scale = Vector2(27.0874, 1)
+
+[node name="Wall10" parent="Walls" instance=ExtResource("6_0s5r2")]
+position = Vector2(5041, -81.9999)
+rotation = 1.20094
+scale = Vector2(21.652, 1)
+
+[node name="Wall12" parent="Walls" instance=ExtResource("6_0s5r2")]
+position = Vector2(5826, -105)
+rotation = 1.20094
+scale = Vector2(21.652, 1)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("6_0s5r2")]
+position = Vector2(6160, -2220)
+rotation = 0.785398
+scale = Vector2(26.2242, 1)
+
+[node name="Wall5" parent="Walls" instance=ExtResource("6_0s5r2")]
+position = Vector2(3563, -2211)
+rotation = 2.35619
+scale = Vector2(26.2242, 1)
+
+[node name="Wall6" parent="Walls" instance=ExtResource("6_0s5r2")]
+position = Vector2(6204, 1980)
+rotation = 2.35619
+scale = Vector2(26.2242, 1)
+
+[node name="Door" type="Sprite2D" parent="Walls"]
+position = Vector2(3308, 1032)
+scale = Vector2(4, 4)
+texture = ExtResource("8_5hnhx")
+
+[node name="Door2" type="Sprite2D" parent="Walls"]
+position = Vector2(3308, 1536)
+scale = Vector2(4, 4)
+texture = ExtResource("8_5hnhx")
+
+[node name="Door3" type="Sprite2D" parent="Walls"]
+position = Vector2(3308, -1788)
+scale = Vector2(4, 4)
+texture = ExtResource("8_5hnhx")
+
+[node name="Door4" type="Sprite2D" parent="Walls"]
+position = Vector2(3308, -1284)
+scale = Vector2(4, 4)
+texture = ExtResource("8_5hnhx")
+
+[node name="Edibles" type="Node" parent="."]
+
+[node name="Bacteria" parent="Edibles" instance=ExtResource("8_7dov7")]
+position = Vector2(5489, 674)
+scale = Vector2(0.25, 0.25)
+value = 0.25
+
+[node name="Bacteria4" parent="Edibles" instance=ExtResource("8_7dov7")]
+position = Vector2(4020, -1923)
+rotation = -0.125779
+scale = Vector2(0.25, 0.25)
+value = 0.25
+
+[node name="Bacteria8" parent="Edibles" instance=ExtResource("8_7dov7")]
+position = Vector2(4972, -596)
+rotation = -0.125779
+scale = Vector2(0.25, 0.25)
+value = 0.25
+
+[node name="Bacteria5" parent="Edibles" instance=ExtResource("8_7dov7")]
+position = Vector2(4391, -2028)
+rotation = 0.197931
+scale = Vector2(0.25, 0.25)
+value = 0.25
+
+[node name="Bacteria6" parent="Edibles" instance=ExtResource("8_7dov7")]
+position = Vector2(4708, -2105)
+rotation = 0.272397
+scale = Vector2(0.25, 0.25)
+value = 0.25
+
+[node name="Bacteria7" parent="Edibles" instance=ExtResource("8_7dov7")]
+position = Vector2(3842, -2045)
+rotation = 0.0129778
+scale = Vector2(0.25, 0.25)
+value = 0.25
+
+[node name="Bacteria3" parent="Edibles" instance=ExtResource("8_7dov7")]
+position = Vector2(5693, 823)
+rotation = -0.5281
+scale = Vector2(0.25, 0.25)
+value = 0.25
+
+[node name="Bacteria2" parent="Edibles" instance=ExtResource("8_7dov7")]
+position = Vector2(5510, 724)
+rotation = 0.24386
+scale = Vector2(0.25, 0.25)
+value = 0.25
+
+[node name="Bolt" parent="Edibles" instance=ExtResource("9_ehv2h")]
+position = Vector2(5360, 474)
+value = 1.0
+
+[node name="Bolt3" parent="Edibles" instance=ExtResource("9_ehv2h")]
+position = Vector2(5949, 205)
+rotation = 0.15997
+value = 1.0
+
+[node name="Bolt2" parent="Edibles" instance=ExtResource("9_ehv2h")]
+position = Vector2(5286, 404)
+rotation = -0.166437
+value = 1.0
+
+[node name="Bolt4" parent="Edibles" instance=ExtResource("9_ehv2h")]
+position = Vector2(5897, 1029)
+rotation = 0.124386
+value = 1.0
+
+[node name="Rodent" parent="Edibles" instance=ExtResource("10_15wb7")]
+position = Vector2(5971, 1942)
+
+[node name="Rodent2" parent="Edibles" instance=ExtResource("10_15wb7")]
+position = Vector2(5772, 1952)
+scale = Vector2(-1, 1)
+
+[node name="Rodent5" parent="Edibles" instance=ExtResource("10_15wb7")]
+position = Vector2(3688, 1836)
+scale = Vector2(-1, 1)
+
+[node name="Rodent3" parent="Edibles" instance=ExtResource("10_15wb7")]
+position = Vector2(5937, 2052)
+scale = Vector2(0.5, 0.5)
+value = 0.5
+
+[node name="Rodent4" parent="Edibles" instance=ExtResource("10_15wb7")]
+position = Vector2(5824, 2037)
+scale = Vector2(-0.5, 0.5)
+value = 0.5
+
+[node name="Gun" parent="Edibles" instance=ExtResource("11_eoq84")]
+position = Vector2(3948, -2195)
+value = 1.0
+
+[node name="Gun5" parent="Edibles" instance=ExtResource("11_eoq84")]
+position = Vector2(4544, -2181)
+value = 1.0
+
+[node name="Gun2" parent="Edibles" instance=ExtResource("11_eoq84")]
+position = Vector2(4100, -2187)
+rotation = -0.0703024
+value = 1.0
+
+[node name="Gun3" parent="Edibles" instance=ExtResource("11_eoq84")]
+position = Vector2(4262, -2190)
+rotation = 0.0625962
+value = 1.0
+
+[node name="Gun4" parent="Edibles" instance=ExtResource("11_eoq84")]
+position = Vector2(4398, -2188)
+rotation = -0.0126397
+value = 1.0
+
+[node name="Pda" parent="Edibles" instance=ExtResource("12_yl73a")]
+position = Vector2(4865, -2179)
+value = 1.0
+
+[node name="Pda4" parent="Edibles" instance=ExtResource("12_yl73a")]
+position = Vector2(5082, -958)
+rotation = 0.425816
+value = 1.0
+
+[node name="Pda2" parent="Edibles" instance=ExtResource("12_yl73a")]
+position = Vector2(5020, -2179)
+rotation = -0.0140865
+value = 1.0
+
+[node name="Pda3" parent="Edibles" instance=ExtResource("12_yl73a")]
+position = Vector2(5170, -2179)
+rotation = 0.0352821
+value = 1.0
+
+[node name="Screw" parent="Edibles" instance=ExtResource("13_s77qv")]
+position = Vector2(5192, 504)
+rotation = -0.159194
+value = 0.5
+
+[node name="Screw2" parent="Edibles" instance=ExtResource("13_s77qv")]
+position = Vector2(5304, 584)
+rotation = -2.1129
+value = 0.5
+
+[node name="Screw3" parent="Edibles" instance=ExtResource("13_s77qv")]
+position = Vector2(5472, 1089)
+rotation = -0.584564
+value = 0.5
+
+[node name="Screw4" parent="Edibles" instance=ExtResource("13_s77qv")]
+position = Vector2(5836, 1318)
+rotation = 0.952748
+value = 0.5
+
+[node name="Fur" parent="Edibles" instance=ExtResource("14_5hnhx")]
+position = Vector2(5744, 1864)
+rotation = -0.0721797
+scale = Vector2(0.25, 0.25)
+value = 0.25
+
+[node name="Fur2" parent="Edibles" instance=ExtResource("14_5hnhx")]
+position = Vector2(5811, 1828)
+rotation = 0.333741
+scale = Vector2(0.25, 0.25)
+value = 0.25
+
+[node name="Fur3" parent="Edibles" instance=ExtResource("14_5hnhx")]
+position = Vector2(6052, 1910)
+rotation = -0.259847
+scale = Vector2(0.25, 0.25)
+value = 0.25
+
+[node name="Fur4" parent="Edibles" instance=ExtResource("14_5hnhx")]
+position = Vector2(5909, 1858)
+rotation = -0.344837
+scale = Vector2(0.25, 0.25)
+value = 0.25
+
+[node name="Fur5" parent="Edibles" instance=ExtResource("14_5hnhx")]
+position = Vector2(5864, 1978)
+rotation = 0.300379
+scale = Vector2(0.25, 0.25)
+value = 0.25
+
+[node name="Fur10" parent="Edibles" instance=ExtResource("14_5hnhx")]
+position = Vector2(5326, 798)
+rotation = 0.300379
+scale = Vector2(0.25, 0.25)
+value = 0.25
+
+[node name="Fur11" parent="Edibles" instance=ExtResource("14_5hnhx")]
+position = Vector2(5675, 1018)
+rotation = 0.300379
+scale = Vector2(0.25, 0.25)
+value = 0.25
+
+[node name="Fur6" parent="Edibles" instance=ExtResource("14_5hnhx")]
+position = Vector2(5646, 2020)
+rotation = -0.253572
+scale = Vector2(0.25, 0.25)
+value = 0.25
+
+[node name="Fur7" parent="Edibles" instance=ExtResource("14_5hnhx")]
+position = Vector2(3892, 1904)
+rotation = 0.430922
+scale = Vector2(0.25, 0.25)
+value = 0.25
+
+[node name="Fur8" parent="Edibles" instance=ExtResource("14_5hnhx")]
+position = Vector2(3732, 1719)
+rotation = 0.206156
+scale = Vector2(0.25, 0.25)
+value = 0.25
+
+[node name="Fur9" parent="Edibles" instance=ExtResource("14_5hnhx")]
+position = Vector2(3801, 2014)
+rotation = -0.240822
+scale = Vector2(0.25, 0.25)
+value = 0.25
+
+[node name="EndingTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="EndingTimer" to="." method="next_level"]

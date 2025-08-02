@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://detkewgq8hpk"]
+
+[ext_resource type="Texture2D" uid="uid://diihbjy8ru1tp" path="res://assets/hull_square.png" id="1_2qhhq"]
+[ext_resource type="Script" uid="uid://c4ecwe1jp2njc" path="res://hull.gd" id="1_86dc7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86dc7"]
+size = Vector2(126, 127)
+
+[node name="Hull" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_86dc7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_86dc7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2qhhq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

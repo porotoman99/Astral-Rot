@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2511uxmqxom4"]
+
+[ext_resource type="Script" uid="uid://c0cnbvl8v5ig0" path="res://planet_3.gd" id="1_cfm5e"]
+[ext_resource type="Texture2D" uid="uid://dkct32q2fvsg3" path="res://assets/planet_3.png" id="2_cfm5e"]
+[ext_resource type="PackedScene" uid="uid://djwlcbl4vj2aj" path="res://moon.tscn" id="3_lj3ap"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_35vun"]
+radius = 101.0
+
+[node name="Planet3" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_cfm5e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -6)
+shape = SubResource("CircleShape2D_35vun")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cfm5e")
+
+[node name="MoonOrbit" type="Node2D" parent="."]
+
+[node name="Moon" parent="MoonOrbit" instance=ExtResource("3_lj3ap")]
+position = Vector2(318, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

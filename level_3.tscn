@@ -1,0 +1,688 @@
+[gd_scene load_steps=24 format=3 uid="uid://beistq270khqf"]
+
+[ext_resource type="PackedScene" uid="uid://bdj68j7nw00xj" path="res://player.tscn" id="1_j8bo8"]
+[ext_resource type="Script" uid="uid://dmvronitlqcb0" path="res://level_3.gd" id="1_liaj6"]
+[ext_resource type="Texture2D" uid="uid://qpikgvb6orub" path="res://assets/ship.png" id="2_1jdk1"]
+[ext_resource type="Texture2D" uid="uid://df2bp2lvfh7p3" path="res://assets/room.png" id="3_1jdk1"]
+[ext_resource type="Shader" uid="uid://c2h1wuhf8uq7a" path="res://scroll.gdshader" id="3_6p2dc"]
+[ext_resource type="Texture2D" uid="uid://c7p43rnnwingi" path="res://assets/space.png" id="4_fmu3g"]
+[ext_resource type="Texture2D" uid="uid://4xfgq1u8bowr" path="res://assets/cafe.png" id="5_jvy75"]
+[ext_resource type="PackedScene" uid="uid://cpgr434gjp1km" path="res://wall.tscn" id="6_6p2dc"]
+[ext_resource type="Texture2D" uid="uid://ha0m54kxt1xt" path="res://assets/engine.png" id="6_keufu"]
+[ext_resource type="Texture2D" uid="uid://saxivc3p3etx" path="res://assets/bridge.png" id="7_joegk"]
+[ext_resource type="PackedScene" uid="uid://nqywiw2oyh1e" path="res://door.tscn" id="8_7ds5r"]
+[ext_resource type="PackedScene" uid="uid://7h2lkfhkh3us" path="res://human.tscn" id="8_833wy"]
+[ext_resource type="Script" uid="uid://dg3711t3lpk5j" path="res://door.gd" id="10_kmy7e"]
+[ext_resource type="Texture2D" uid="uid://dnqlta6g2sxbq" path="res://assets/door.png" id="11_833wy"]
+[ext_resource type="Texture2D" uid="uid://ccqtgfjrbc3q5" path="res://assets/button.png" id="12_833wy"]
+[ext_resource type="AudioStream" uid="uid://rkdnmkvpfr60" path="res://assets/sfx/button.wav" id="13_ghrvs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ds5r"]
+shader = ExtResource("3_6p2dc")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0phs7"]
+size = Vector2(64, 130)
+
+[sub_resource type="Animation" id="Animation_v6xrn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door1:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Door2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Door2:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ba8gm"]
+resource_name = "door_open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Door1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -127)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Door1:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Door2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 128)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Door2:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v6xrn"]
+_data = {
+&"RESET": SubResource("Animation_v6xrn"),
+&"door_open": SubResource("Animation_ba8gm")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50cdl"]
+size = Vector2(64, 255)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ghrvs"]
+radius = 50.0899
+
+[node name="Level3" type="Node2D"]
+script = ExtResource("1_liaj6")
+
+[node name="Player" parent="." instance=ExtResource("1_j8bo8")]
+position = Vector2(1095, -39)
+balls = 100
+
+[node name="Ship" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("2_1jdk1")
+
+[node name="Room" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1218, -32)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_1jdk1")
+
+[node name="Cafe" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-28, -490)
+texture = ExtResource("5_jvy75")
+
+[node name="Engine" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(214, 569)
+texture = ExtResource("6_keufu")
+
+[node name="Bridge" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-1128, -15)
+texture = ExtResource("7_joegk")
+
+[node name="Space" type="TextureRect" parent="."]
+z_index = -3
+material = SubResource("ShaderMaterial_7ds5r")
+offset_left = -7943.0
+offset_top = -5226.0
+offset_right = 7627.0
+offset_bottom = 5446.0
+texture = ExtResource("4_fmu3g")
+stretch_mode = 1
+
+[node name="Walls" type="Node2D" parent="."]
+position = Vector2(950, -72)
+scale = Vector2(0.250163, 0.250163)
+
+[node name="Wall" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(1091.29, -2034.68)
+scale = Vector2(120.92, 1)
+
+[node name="Wall50" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-1662.92, 791.485)
+scale = Vector2(120.92, 1)
+
+[node name="Wall51" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-1662.92, -463.699)
+scale = Vector2(120.92, 1)
+
+[node name="Wall52" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-5072.7, -463.699)
+scale = Vector2(120.92, 1)
+
+[node name="Wall53" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-5072.7, 791.486)
+scale = Vector2(120.92, 1)
+
+[node name="Wall54" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-5848.2, 835.457)
+scale = Vector2(120.92, 1)
+
+[node name="Wall55" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-5716.28, 2450.41)
+scale = Vector2(120.92, 1)
+
+[node name="Wall56" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-2814.17, 3745.57)
+scale = Vector2(120.92, 1)
+
+[node name="Wall57" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-8426.52, 2978.06)
+scale = Vector2(120.92, 1)
+
+[node name="Wall58" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-8462.5, -2574.33)
+scale = Vector2(120.92, 1)
+
+[node name="Wall59" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-3817.52, -2774.2)
+scale = Vector2(235.885, 1)
+
+[node name="Wall61" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-7243.29, 1535)
+rotation = -1.5708
+scale = Vector2(235.885, 1)
+
+[node name="Wall62" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-7087.39, 2246.54)
+rotation = -1.5708
+scale = Vector2(235.885, 1)
+
+[node name="Wall63" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-4217.26, 4497.08)
+rotation = -1.5708
+scale = Vector2(235.885, 1)
+
+[node name="Wall64" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-1630.94, 4437.12)
+rotation = -1.5708
+scale = Vector2(235.885, 1)
+
+[node name="Wall65" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-1630.94, -4117.32)
+rotation = -1.5708
+scale = Vector2(235.885, 1)
+
+[node name="Wall66" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-5980.11, -4189.28)
+rotation = -1.5708
+scale = Vector2(235.885, 1)
+
+[node name="Wall60" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-9785.64, 235.847)
+rotation = 1.5708
+scale = Vector2(262.908, 1)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(1071.3, 2410.43)
+scale = Vector2(120.92, 1)
+
+[node name="Wall7" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(2502.37, 235.847)
+rotation = 1.5708
+scale = Vector2(205.2, 1)
+
+[node name="Wall8" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-375.756, 159.896)
+rotation = 1.5708
+scale = Vector2(90.3946, 1)
+
+[node name="Wall24" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-1003.35, -739.519)
+scale = Vector2(63.8519, 1)
+
+[node name="Wall25" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-1003.35, -1754.86)
+scale = Vector2(63.8519, 1)
+
+[node name="Wall26" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-1003.35, 1063.31)
+scale = Vector2(63.8519, 1)
+
+[node name="Wall27" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-1003.35, 2078.65)
+scale = Vector2(63.8519, 1)
+
+[node name="Wall28" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-4844.85, 2134.61)
+scale = Vector2(63.8519, 1)
+
+[node name="Wall29" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-4844.85, 1119.27)
+scale = Vector2(63.8519, 1)
+
+[node name="Wall30" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-6611.7, -807.475)
+scale = Vector2(63.8519, 1)
+
+[node name="Wall31" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-6611.7, -1822.82)
+scale = Vector2(63.8519, 1)
+
+[node name="Wall32" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-3877.48, 163.893)
+rotation = -1.5708
+scale = Vector2(63.8519, 1)
+
+[node name="Wall33" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-2862.14, 163.893)
+rotation = -1.5708
+scale = Vector2(63.8519, 1)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-251.836, 2286.51)
+rotation = 0.785398
+scale = Vector2(26.2242, 1)
+
+[node name="Wall9" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(1469, 523)
+rotation = 0.677949
+scale = Vector2(23.1706, 1)
+
+[node name="Wall14" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(2145, 55)
+rotation = -0.260442
+scale = Vector2(23.1706, 1)
+
+[node name="Wall15" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(2362, -210)
+rotation = 1.5708
+scale = Vector2(20.8506, 1)
+
+[node name="Wall18" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(2351, -603)
+rotation = 1.66056
+scale = Vector2(20.8506, 1)
+
+[node name="Wall22" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(1638, -933)
+rotation = 1.66056
+scale = Vector2(21.6581, 1)
+
+[node name="Wall23" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(1916, -1188)
+rotation = 2.9718
+scale = Vector2(27.1179, 1)
+
+[node name="Wall19" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(2255, -592)
+rotation = 1.0261
+scale = Vector2(20.8506, 1)
+
+[node name="Wall20" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(1717, -540)
+rotation = 1.07083
+scale = Vector2(20.8506, 1)
+
+[node name="Wall21" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(2270, -1023)
+rotation = 1.14087
+scale = Vector2(23.8535, 1)
+
+[node name="Wall16" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(1621, -460)
+rotation = 1.5708
+scale = Vector2(23.1706, 1)
+
+[node name="Wall17" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(1736, -186)
+rotation = 0.674389
+scale = Vector2(23.1706, 1)
+
+[node name="Wall11" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(1859, 508)
+rotation = -0.629577
+scale = Vector2(27.3285, 1)
+
+[node name="Wall13" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(1351, -172)
+rotation = -0.629577
+scale = Vector2(27.0874, 1)
+
+[node name="Wall10" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(1213, 180)
+rotation = 1.20094
+scale = Vector2(21.652, 1)
+
+[node name="Wall12" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(1998, 157)
+rotation = 1.20094
+scale = Vector2(21.652, 1)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(2332, -1958)
+rotation = 0.785398
+scale = Vector2(26.2242, 1)
+
+[node name="Wall67" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-1630.94, 795.483)
+rotation = 1.5708
+scale = Vector2(26.2242, 1)
+
+[node name="Wall68" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-1630.94, -471.693)
+rotation = 1.5708
+scale = Vector2(26.2242, 1)
+
+[node name="Wall69" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-371.758, -2022.69)
+rotation = 1.5708
+scale = Vector2(26.2242, 1)
+
+[node name="Wall70" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-371.758, 2346.47)
+rotation = 1.5708
+scale = Vector2(26.2242, 1)
+
+[node name="Wall71" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-4213.26, 851.447)
+rotation = 1.5708
+scale = Vector2(26.2242, 1)
+
+[node name="Wall72" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-5476.44, 851.447)
+rotation = 1.5708
+scale = Vector2(26.2242, 1)
+
+[node name="Wall73" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-5476.44, 2402.44)
+rotation = 1.5708
+scale = Vector2(26.2242, 1)
+
+[node name="Wall74" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-5980.11, -543.647)
+rotation = 1.5708
+scale = Vector2(26.2242, 1)
+
+[node name="Wall75" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-7243.29, -2090.64)
+rotation = 1.5708
+scale = Vector2(26.2242, 1)
+
+[node name="Wall34" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-1750.86, -2646.28)
+rotation = 0.785398
+scale = Vector2(26.2242, 1)
+
+[node name="Wall35" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-7371.21, -2458.4)
+rotation = 0.785398
+scale = Vector2(26.2242, 1)
+
+[node name="Wall36" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-5832.21, -563.634)
+rotation = 0.785398
+scale = Vector2(26.2242, 1)
+
+[node name="Wall37" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-4085.34, 3625.64)
+rotation = 0.785398
+scale = Vector2(26.2242, 1)
+
+[node name="Wall38" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-1806.83, 867.436)
+rotation = 0.785398
+scale = Vector2(26.2242, 1)
+
+[node name="Wall39" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-5648.33, 911.408)
+rotation = 0.785398
+scale = Vector2(26.2242, 1)
+
+[node name="Wall40" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-6919.5, 2374.46)
+rotation = 0.785398
+scale = Vector2(26.2242, 1)
+
+[node name="Wall41" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-9669.71, 2850.15)
+rotation = 0.785398
+scale = Vector2(26.2242, 1)
+
+[node name="Wall5" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-191.875, -1966.72)
+rotation = 2.35619
+scale = Vector2(26.2242, 1)
+
+[node name="Wall6" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(2398.44, 2270.52)
+rotation = 2.35619
+scale = Vector2(26.2242, 1)
+
+[node name="Wall42" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-1734.87, 3597.66)
+rotation = 2.35619
+scale = Vector2(26.2242, 1)
+
+[node name="Wall43" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-4097.34, 923.4)
+rotation = 2.35619
+scale = Vector2(26.2242, 1)
+
+[node name="Wall44" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-5864.19, -2646.28)
+rotation = 2.35619
+scale = Vector2(26.2242, 1)
+
+[node name="Wall45" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-1806.83, -539.649)
+rotation = 2.35619
+scale = Vector2(26.2242, 1)
+
+[node name="Wall46" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-6955.48, 951.381)
+rotation = 2.35619
+scale = Vector2(26.2242, 1)
+
+[node name="Wall47" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-5608.35, 2338.48)
+rotation = 2.35619
+scale = Vector2(26.2242, 1)
+
+[node name="Wall48" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-7335.23, 2826.16)
+rotation = 2.35619
+scale = Vector2(26.2242, 1)
+
+[node name="Wall49" parent="Walls" instance=ExtResource("6_6p2dc")]
+position = Vector2(-9673.71, -2442.41)
+rotation = 2.35619
+scale = Vector2(26.2242, 1)
+
+[node name="Edibles" type="Node" parent="."]
+
+[node name="Human" parent="Edibles" instance=ExtResource("8_833wy")]
+position = Vector2(-1283, -2)
+rotation = 3.14159
+
+[node name="Human2" parent="Edibles" instance=ExtResource("8_833wy")]
+position = Vector2(-1248, -124)
+rotation = 3.14159
+
+[node name="Human3" parent="Edibles" instance=ExtResource("8_833wy")]
+position = Vector2(-1213, -237)
+rotation = 3.14159
+
+[node name="Human4" parent="Edibles" instance=ExtResource("8_833wy")]
+position = Vector2(-1239, 110)
+rotation = 3.14159
+
+[node name="Human7" parent="Edibles" instance=ExtResource("8_833wy")]
+position = Vector2(-57, -671)
+rotation = 1.5708
+
+[node name="Human8" parent="Edibles" instance=ExtResource("8_833wy")]
+position = Vector2(413, -653)
+rotation = 1.5708
+
+[node name="Human9" parent="Edibles" instance=ExtResource("8_833wy")]
+position = Vector2(48, 758)
+rotation = -1.5708
+
+[node name="Human10" parent="Edibles" instance=ExtResource("8_833wy")]
+position = Vector2(352, 204)
+rotation = 1.57079
+
+[node name="Human11" parent="Edibles" instance=ExtResource("8_833wy")]
+position = Vector2(-500, 480)
+rotation = -2.35619
+
+[node name="Human6" parent="Edibles" instance=ExtResource("8_833wy")]
+position = Vector2(-1075, -2)
+rotation = 3.14159
+
+[node name="Human5" parent="Edibles" instance=ExtResource("8_833wy")]
+position = Vector2(-1194, 213)
+rotation = 3.14159
+
+[node name="Doors" type="Node" parent="."]
+
+[node name="Door" parent="Doors" instance=ExtResource("8_7ds5r")]
+position = Vector2(827, -385)
+
+[node name="Door2" parent="Doors" instance=ExtResource("8_7ds5r")]
+position = Vector2(571, -385)
+
+[node name="Door3" parent="Doors" instance=ExtResource("8_7ds5r")]
+position = Vector2(827, 320)
+
+[node name="Door4" parent="Doors" instance=ExtResource("8_7ds5r")]
+position = Vector2(571, 320)
+
+[node name="Door9" parent="Doors" instance=ExtResource("8_7ds5r")]
+position = Vector2(-832, -402)
+
+[node name="LockedDoor" type="Node2D" parent="Doors"]
+position = Vector2(-576, -402)
+script = ExtResource("10_kmy7e")
+
+[node name="Door1" type="StaticBody2D" parent="Doors/LockedDoor"]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/LockedDoor/Door1"]
+position = Vector2(0, -62)
+shape = SubResource("RectangleShape2D_0phs7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Doors/LockedDoor/Door1"]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(0, -62)
+texture = ExtResource("11_833wy")
+
+[node name="Door2" type="StaticBody2D" parent="Doors/LockedDoor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/LockedDoor/Door2"]
+position = Vector2(0, 63)
+shape = SubResource("RectangleShape2D_0phs7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Doors/LockedDoor/Door2"]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(0, 63)
+texture = ExtResource("11_833wy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Doors/LockedDoor"]
+libraries = {
+&"": SubResource("AnimationLibrary_v6xrn")
+}
+speed_scale = 3.0
+
+[node name="Detector" type="Area2D" parent="Doors/LockedDoor"]
+collision_layer = 7
+collision_mask = 7
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/LockedDoor/Detector"]
+position = Vector2(0, 0.5)
+scale = Vector2(3, 1)
+shape = SubResource("RectangleShape2D_50cdl")
+
+[node name="Button" type="Area2D" parent="Doors/LockedDoor"]
+z_index = -1
+position = Vector2(-44, 744)
+collision_layer = 3
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Doors/LockedDoor/Button"]
+texture = ExtResource("12_833wy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/LockedDoor/Button"]
+shape = SubResource("CircleShape2D_ghrvs")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Doors/LockedDoor/Button"]
+stream = ExtResource("13_ghrvs")
+
+[node name="Door5" parent="Doors" instance=ExtResource("8_7ds5r")]
+position = Vector2(-134, 334)
+
+[node name="Door6" parent="Doors" instance=ExtResource("8_7ds5r")]
+position = Vector2(-390, 334)
+
+[node name="Door7" parent="Doors" instance=ExtResource("8_7ds5r")]
+position = Vector2(108, 97)
+rotation = 1.5708
+
+[node name="Door8" parent="Doors" instance=ExtResource("8_7ds5r")]
+position = Vector2(108, -159)
+rotation = 1.5708
+
+[node name="EndingTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="opened" from="Doors/Door2" to="." method="wake_cafe"]
+[connection signal="opened" from="Doors/Door4" to="." method="wake_engine"]
+[connection signal="opened" from="Doors/Door9" to="." method="wake_bridge"]
+[connection signal="body_entered" from="Doors/LockedDoor/Detector" to="Doors/LockedDoor" method="_on_detector_body_entered"]
+[connection signal="body_entered" from="Doors/LockedDoor/Button" to="." method="unlock"]
+[connection signal="opened" from="Doors/Door6" to="." method="wake_closet"]
+[connection signal="opened" from="Doors/Door7" to="." method="wake_engine"]
+[connection signal="opened" from="Doors/Door8" to="." method="wake_cafe"]
+[connection signal="timeout" from="EndingTimer" to="." method="next_level"]

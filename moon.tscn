@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://djwlcbl4vj2aj"]
+
+[ext_resource type="Script" uid="uid://dy7leo3mytdl5" path="res://moon.gd" id="1_rjvio"]
+[ext_resource type="Texture2D" uid="uid://cxfljeiyn3q1h" path="res://assets/planet_3_1.png" id="2_rjvio"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wx2ww"]
+radius = 24.0208
+
+[node name="Moon" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_rjvio")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_wx2ww")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rjvio")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

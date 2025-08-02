@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://n6sf0xoe7gml"]
+
+[ext_resource type="Script" uid="uid://3lkbo7jb8sre" path="res://fur.gd" id="1_46xut"]
+[ext_resource type="Texture2D" uid="uid://donq0lj6gd2ep" path="res://assets/shavings.png" id="2_46xut"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y1p61"]
+radius = 19.105
+
+[node name="Fur" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_46xut")
+value = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 7)
+shape = SubResource("CircleShape2D_y1p61")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_46xut")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

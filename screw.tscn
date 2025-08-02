@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfisqgu4x8ndv"]
+
+[ext_resource type="Texture2D" uid="uid://b48em5qeioehm" path="res://assets/screw.png" id="1_hgsbd"]
+[ext_resource type="Script" uid="uid://dbjnc6cto4xxc" path="res://screw.gd" id="1_orpkh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mme87"]
+radius = 12.0416
+
+[node name="Screw" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_orpkh")
+value = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_mme87")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hgsbd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

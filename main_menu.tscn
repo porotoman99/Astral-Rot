@@ -1,0 +1,322 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvtg1xsqbxlp1"]
+
+[ext_resource type="Script" uid="uid://bqqmkjjjpxr2q" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="AudioStream" uid="uid://b4s17xu00ys2c" path="res://assets/biomorph.ogg" id="2_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://bphcjeh2o3dss" path="res://assets/logo.png" id="2_fu7sn"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06t4h")
+
+[node name="TitleScreen" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ColorRect" type="ColorRect" parent="TitleScreen"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1153.0
+offset_bottom = 649.0
+color = Color(0.298039, 0.160784, 0.160784, 1)
+
+[node name="Buttons" type="Node2D" parent="TitleScreen"]
+position = Vector2(0, 39)
+
+[node name="NewGame" type="Button" parent="TitleScreen/Buttons"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 501.0
+offset_top = 291.0
+offset_right = 651.0
+offset_bottom = 335.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "New Game"
+
+[node name="LevelSelect" type="Button" parent="TitleScreen/Buttons"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 501.0
+offset_top = 341.0
+offset_right = 651.0
+offset_bottom = 385.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Level Select"
+
+[node name="Options" type="Button" parent="TitleScreen/Buttons"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 501.0
+offset_top = 391.0
+offset_right = 651.0
+offset_bottom = 435.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Options"
+
+[node name="Exit" type="Button" parent="TitleScreen/Buttons"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 501.0
+offset_top = 441.0
+offset_right = 651.0
+offset_bottom = 485.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Exit"
+
+[node name="Sprite2D" type="Sprite2D" parent="TitleScreen"]
+position = Vector2(576, 175)
+scale = Vector2(2, 2)
+texture = ExtResource("2_fu7sn")
+
+[node name="Levels" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ColorRect" type="ColorRect" parent="Levels"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1153.0
+offset_bottom = 649.0
+color = Color(0.298804, 0.159938, 0.16, 1)
+
+[node name="LevelSelect" type="Label" parent="Levels"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -112.5
+offset_top = 63.0
+offset_right = 112.5
+offset_bottom = 118.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Level Select"
+
+[node name="Buttons" type="Node2D" parent="Levels"]
+
+[node name="1" type="Button" parent="Levels/Buttons"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 442.0
+offset_top = 183.0
+offset_right = 492.0
+offset_bottom = 233.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "1"
+
+[node name="2" type="Button" parent="Levels/Buttons"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 517.0
+offset_top = 183.0
+offset_right = 567.0
+offset_bottom = 233.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "2"
+
+[node name="3" type="Button" parent="Levels/Buttons"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 592.0
+offset_top = 183.0
+offset_right = 642.0
+offset_bottom = 233.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "3"
+
+[node name="4" type="Button" parent="Levels/Buttons"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 626.0
+offset_top = 183.0
+offset_right = 676.0
+offset_bottom = 233.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "4"
+
+[node name="5" type="Button" parent="Levels/Buttons"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 667.0
+offset_top = 183.0
+offset_right = 717.0
+offset_bottom = 233.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "4"
+
+[node name="Back" type="Button" parent="Levels/Buttons"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 538.5
+offset_top = 275.0
+offset_right = 613.5
+offset_bottom = 325.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Back"
+
+[node name="Options" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ColorRect" type="ColorRect" parent="Options"]
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1153.0
+offset_bottom = 649.0
+color = Color(0.298804, 0.159938, 0.16, 1)
+
+[node name="Controls" type="Label" parent="Options"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -474.0
+offset_top = 63.0
+offset_right = -249.0
+offset_bottom = 118.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Controls"
+
+[node name="ControlButtons" type="Node2D" parent="Options"]
+visible = false
+position = Vector2(102, 156)
+
+[node name="5" type="Button" parent="Options/ControlButtons"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "5"
+
+[node name="Options" type="Label" parent="Options"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -84.0
+offset_top = 63.0
+offset_right = 141.0
+offset_bottom = 118.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Options"
+
+[node name="OptionsButtons" type="Node2D" parent="Options"]
+position = Vector2(492, 156)
+
+[node name="BloodCheck" type="CheckBox" parent="Options/OptionsButtons"]
+offset_right = 148.0
+offset_bottom = 31.0
+button_pressed = true
+text = " Blood particles"
+
+[node name="MusicLabel" type="Label" parent="Options/OptionsButtons"]
+offset_top = 63.0
+offset_right = 109.0
+offset_bottom = 86.0
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="Options/OptionsButtons"]
+offset_top = 86.0
+offset_right = 148.0
+offset_bottom = 109.0
+max_value = 1.0
+step = 0.0
+value = 0.5
+scrollable = false
+tick_count = 11
+ticks_on_borders = true
+
+[node name="SoundLabel" type="Label" parent="Options/OptionsButtons"]
+offset_top = 109.0
+offset_right = 109.0
+offset_bottom = 132.0
+text = "Sound Volume"
+
+[node name="SoundSlider" type="HSlider" parent="Options/OptionsButtons"]
+offset_top = 132.0
+offset_right = 148.0
+offset_bottom = 155.0
+max_value = 1.0
+step = 0.0
+value = 0.5
+scrollable = false
+tick_count = 11
+ticks_on_borders = true
+
+[node name="Back" type="Button" parent="Options"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -37.5
+offset_top = 504.0
+offset_right = 37.5
+offset_bottom = 554.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Back"
+
+[node name="Level" type="Node2D" parent="."]
+visible = false
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_7vrkn")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[connection signal="pressed" from="TitleScreen/Buttons/NewGame" to="." method="loadLevel1"]
+[connection signal="pressed" from="TitleScreen/Buttons/LevelSelect" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="TitleScreen/Buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="TitleScreen/Buttons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Levels/Buttons/1" to="." method="loadLevel1"]
+[connection signal="pressed" from="Levels/Buttons/2" to="." method="loadLevel2"]
+[connection signal="pressed" from="Levels/Buttons/3" to="." method="loadLevel3"]
+[connection signal="pressed" from="Levels/Buttons/4" to="." method="loadLevel4"]
+[connection signal="pressed" from="Levels/Buttons/5" to="." method="loadLevel5"]
+[connection signal="pressed" from="Levels/Buttons/Back" to="." method="titleScreen"]
+[connection signal="toggled" from="Options/OptionsButtons/BloodCheck" to="." method="_on_blood_check_toggled"]
+[connection signal="value_changed" from="Options/OptionsButtons/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Options/OptionsButtons/SoundSlider" to="." method="_on_sound_slider_value_changed"]
+[connection signal="pressed" from="Options/Back" to="." method="titleScreen"]

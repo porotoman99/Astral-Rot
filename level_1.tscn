@@ -1,0 +1,196 @@
+[gd_scene load_steps=13 format=3 uid="uid://cki12vrnfaokm"]
+
+[ext_resource type="PackedScene" uid="uid://bdj68j7nw00xj" path="res://player.tscn" id="1_3hls8"]
+[ext_resource type="Script" uid="uid://cra3h4kxec5ir" path="res://level_1.gd" id="1_gyffv"]
+[ext_resource type="Texture2D" uid="uid://qpikgvb6orub" path="res://assets/ship.png" id="2_hbghi"]
+[ext_resource type="Shader" uid="uid://c2h1wuhf8uq7a" path="res://scroll.gdshader" id="3_ihfcg"]
+[ext_resource type="Texture2D" uid="uid://df2bp2lvfh7p3" path="res://assets/room.png" id="3_rka8t"]
+[ext_resource type="Texture2D" uid="uid://c7p43rnnwingi" path="res://assets/space.png" id="4_rka8t"]
+[ext_resource type="PackedScene" uid="uid://cpgr434gjp1km" path="res://wall.tscn" id="6_5hph3"]
+[ext_resource type="PackedScene" uid="uid://b4lq2pb6d5hld" path="res://dust.tscn" id="7_bjebc"]
+[ext_resource type="PackedScene" uid="uid://n6sf0xoe7gml" path="res://fur.tscn" id="8_5rr72"]
+[ext_resource type="PackedScene" uid="uid://cjrpwekorrpea" path="res://bacteria.tscn" id="9_1pe0h"]
+[ext_resource type="PackedScene" uid="uid://csjr4xvqurj6w" path="res://spore.tscn" id="9_5rr72"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5hph3"]
+shader = ExtResource("3_ihfcg")
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_gyffv")
+
+[node name="Player" parent="." instance=ExtResource("1_3hls8")]
+position = Vector2(23222, 2009)
+
+[node name="Ship" type="Sprite2D" parent="."]
+z_index = -1
+scale = Vector2(16, 16)
+texture = ExtResource("2_hbghi")
+
+[node name="Room" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(19242, -784)
+scale = Vector2(4, 4)
+texture = ExtResource("3_rka8t")
+
+[node name="Space" type="TextureRect" parent="."]
+z_index = -2
+material = SubResource("ShaderMaterial_5hph3")
+offset_left = -135943.0
+offset_top = -71530.0
+offset_right = -120373.0
+offset_bottom = -60858.0
+scale = Vector2(16, 16)
+texture = ExtResource("4_rka8t")
+stretch_mode = 1
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("6_5hph3")]
+position = Vector2(22489, 1584)
+rotation = -1.05471
+scale = Vector2(89.2558, 1)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("6_5hph3")]
+position = Vector2(23989, 2413)
+rotation = -1.05471
+scale = Vector2(89.2558, 1)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("6_5hph3")]
+position = Vector2(23657, 1257)
+rotation = 0.513942
+scale = Vector2(89.2558, 1)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("6_5hph3")]
+position = Vector2(22828, 2760)
+rotation = 0.513942
+scale = Vector2(89.2558, 1)
+
+[node name="Edibles" type="Node" parent="."]
+
+[node name="Dust" parent="Edibles" instance=ExtResource("7_bjebc")]
+position = Vector2(23376, 1894)
+rotation = -0.236074
+value = 1.0
+
+[node name="Dust3" parent="Edibles" instance=ExtResource("7_bjebc")]
+position = Vector2(23213, 2604)
+rotation = 0.143089
+value = 1.0
+
+[node name="Dust4" parent="Edibles" instance=ExtResource("7_bjebc")]
+position = Vector2(23470, 2547)
+rotation = -0.110064
+value = 1.0
+
+[node name="Dust5" parent="Edibles" instance=ExtResource("7_bjebc")]
+position = Vector2(22760, 1674)
+rotation = -0.0601051
+value = 1.0
+
+[node name="Dust2" parent="Edibles" instance=ExtResource("7_bjebc")]
+position = Vector2(23467, 1949)
+rotation = -0.109508
+value = 1.0
+
+[node name="Bacteria" parent="Edibles" instance=ExtResource("9_1pe0h")]
+position = Vector2(22965, 2020)
+rotation = -0.148193
+
+[node name="Bacteria2" parent="Edibles" instance=ExtResource("9_1pe0h")]
+position = Vector2(23382, 1607)
+rotation = 0.227155
+
+[node name="Bacteria3" parent="Edibles" instance=ExtResource("9_1pe0h")]
+position = Vector2(23887, 1745)
+rotation = 0.645123
+
+[node name="Bacteria4" parent="Edibles" instance=ExtResource("9_1pe0h")]
+position = Vector2(23706, 1840)
+rotation = 0.578557
+
+[node name="Bacteria5" parent="Edibles" instance=ExtResource("9_1pe0h")]
+position = Vector2(23702, 2097)
+rotation = -0.633192
+
+[node name="Bacteria6" parent="Edibles" instance=ExtResource("9_1pe0h")]
+position = Vector2(23719, 2404)
+rotation = -0.1813
+
+[node name="Bacteria7" parent="Edibles" instance=ExtResource("9_1pe0h")]
+position = Vector2(23332, 2392)
+rotation = 0.0641254
+
+[node name="Fur" parent="Edibles" instance=ExtResource("8_5rr72")]
+position = Vector2(23580, 2067)
+rotation = 0.126134
+value = 1.0
+
+[node name="Fur7" parent="Edibles" instance=ExtResource("8_5rr72")]
+position = Vector2(23029, 1745)
+rotation = -0.877086
+value = 1.0
+
+[node name="Fur8" parent="Edibles" instance=ExtResource("8_5rr72")]
+position = Vector2(23631, 1571)
+rotation = -0.157131
+value = 1.0
+
+[node name="Fur9" parent="Edibles" instance=ExtResource("8_5rr72")]
+position = Vector2(23023, 2513)
+rotation = 0.267802
+value = 1.0
+
+[node name="Fur10" parent="Edibles" instance=ExtResource("8_5rr72")]
+position = Vector2(23414, 2727)
+rotation = 0.579326
+value = 1.0
+
+[node name="Fur5" parent="Edibles" instance=ExtResource("8_5rr72")]
+position = Vector2(22849, 2204)
+rotation = 0.798483
+value = 1.0
+
+[node name="Fur6" parent="Edibles" instance=ExtResource("8_5rr72")]
+position = Vector2(22883, 1539)
+rotation = 1.30596
+value = 1.0
+
+[node name="Fur2" parent="Edibles" instance=ExtResource("8_5rr72")]
+position = Vector2(23608, 2200)
+rotation = 1.57373
+value = 1.0
+
+[node name="Fur3" parent="Edibles" instance=ExtResource("8_5rr72")]
+position = Vector2(23857, 2093)
+rotation = -0.545173
+value = 1.0
+
+[node name="Fur4" parent="Edibles" instance=ExtResource("8_5rr72")]
+position = Vector2(23855, 1958)
+rotation = -1.42523
+value = 1.0
+
+[node name="Spore" parent="Edibles" instance=ExtResource("9_5rr72")]
+position = Vector2(22584, 2038)
+rotation = 0.293806
+value = 1.0
+
+[node name="Spore2" parent="Edibles" instance=ExtResource("9_5rr72")]
+position = Vector2(22687, 1923)
+rotation = -2.19339
+value = 1.0
+
+[node name="Spore3" parent="Edibles" instance=ExtResource("9_5rr72")]
+position = Vector2(23135, 1563)
+rotation = -1.58168
+value = 1.0
+
+[node name="Spore4" parent="Edibles" instance=ExtResource("9_5rr72")]
+position = Vector2(22839, 2433)
+rotation = -1.30328
+value = 1.0
+
+[node name="EndingTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="EndingTimer" to="." method="next_level"]
